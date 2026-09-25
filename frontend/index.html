@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="header">
+            <span class="badge-tag">FINANCIAL DASHBOARD</span>
+            <h1>Smart Expense Tracker</h1>
+            <p>Manage your daily expenses, income, and overall net balance</p>
+        </header>
+
+        <!-- SINGLE LINE OF INDIVIDUAL BOXES -->
+        <section class="summary-grid-row">
+            <!-- Box 1: Net Balance -->
+            <div class="metric-card balance-card">
+                <div class="card-icon">💳</div>
+                <div class="card-info">
+                    <span class="card-label">Net Balance</span>
+                    <h2 id="total-balance">₹-10000.00</h2>
+                </div>
+            </div>
+
+            <!-- Box 2: Total Income -->
+            <div class="metric-card income-card">
+                <div class="card-icon">📈</div>
+                <div class="card-info">
+                    <span class="card-label">Total Income</span>
+                    <h2 id="total-income">+₹0.00</h2>
+                </div>
+            </div>
+
+            <!-- Box 3: Total Expenses -->
+            <div class="metric-card expense-card">
+                <div class="card-icon">📉</div>
+                <div class="card-info">
+                    <span class="card-label">Total Expenses</span>
+                    <h2 id="total-expenses">-₹10000.00</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workspace Grid -->
+        <div class="content-grid">
+            <!-- Add Record Form -->
+            <section class="card form-card">
+                <div class="card-header">
+                    <h3>Add New Record</h3>
+                    <span class="card-subtitle">Quick entry</span>
+                </div>
+
+                <form id="transaction-form">
+                    <div class="form-group">
+                        <label for="title">Title / Description</label>
+                        <input type="text" id="title" placeholder="e.g. Shopping, Rent" required />
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="amount">Amount (₹)</label>
+                            <input type="number" id="amount" step="0.01" placeholder="0.00" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type">Transaction Type</label>
+                            <select id="type" required>
+                                <option value="expense">Expense</option>
+                                <option value="income">Income</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" required>
+                                <option value="" disabled selected>Select category</option>
+                                <option value="Food">Food & Dining</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Utilities">Utilities & Bills</option>
+                                <option value="Salary">Salary / Income</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" required />
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">+ Save Transaction</button>
+                </form>
+            </section>
+
+            <!-- Recent History -->
+            <section class="card list-card">
+                <div class="card-header">
+                    <h3>Recent Transactions</h3>
+                    <span class="card-subtitle">Live history</span>
+                </div>
+                <div class="list-wrapper">
+                    <ul id="transaction-list" class="transaction-list">
+                        <!-- Loaded dynamically -->
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
